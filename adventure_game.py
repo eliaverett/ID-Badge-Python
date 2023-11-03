@@ -51,10 +51,10 @@ def sword_plotline():
 
     if stone_choice in "red stone":
         print("You have picked up a stone of pathfinding! This stone will help you find the nearest exit but it may not be the right one you are looking for. You can follow the path that is laid in front of you now and also have a source of light that eminates from the red stone.")
-        exit_story()
+        sword_ending()
     elif stone_choice in "turquoise stone":
         print("You have grabbed the Queen Goblins' precious stone! Now all the goblins can track you down! You fight them off whilst running through the cave looking for an exit. Soon enough, a landslide comes crashing down behind you and stops all the goblins from attacking you.")
-        exit_story()
+        sword_ending()
     else:
         print("Invalid choice. Please choose between RED or TURQUOISE.")
         sword_plotline()
