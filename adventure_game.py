@@ -1,5 +1,5 @@
 #This is a fun video game I made! I decided to be entirely creative and make a video game I could control entirely. 
-print("This is a text based video game. The user will be given options to choose from to see if they can make it out of the cave alive and escape Gollum and the goblins that surround the cave!")
+
 print()
 
 def start_story():
@@ -29,11 +29,39 @@ def torch_plotline():
         print("Invalid choice. Please choose either JUMPING CAVE FROGS or STICKY.") 
         torch_plotline()
 
+def exit_story():
+    print("You have found the exit! But is it the one you hope for? There are 3 exits laid in front of you. One with a picture of a GOOSE, one with a picture of a BOAR, and one with a picture of a DRAGON! Which one do you choose?")
+    exit_choice = input("Do you choose the GOOSE, BOAR, OR DRAGON?").lower()
+
+    if exit_choice == "goose":
+        print("You have found the queen goblin and she has set a trap for you! You get trapped in a cage with no chance to escape and taken back to the goblins lair never to be seen again! This is the end of your journey.")
+    elif exit_choice == "boar":
+        print("You have found the exit! Gandalf is jumping for joy to see you again! Enjoy your travels! The end.")
+    elif exit_choice == "dragon":
+        print("You have found the dragon of the deep! He shoots fire at you and burns you to a crisp! Better luck next time!")
+    else:
+        print("Invalid choice. Please choose goose, boar, or dragon.")
+        exit_story()
+
+def torch_ending():
+    print("After finding your way past the pond, you come across 3 talking bats named HARRY, CURLY, and MOE. They all tell you that only one knows the way out but you will have to choose which bat you want to follow. ")
+    bat_choice = input("Do you choose to follow HARRY, CURLY, OR MOE?").lower()
+
+    if bat_choice == "harry":
+        print("You have chosen incorrectly. Harry leads you to a hole trap and you fall down a hole too big to climb out of. Your journey has ended.")
+    elif bat_choice == "curly":
+        print("You have chosen incorrectly. Curly has no idea where he is going and leads you in circles until you have no idea where you are at in the cave. Your journey has ended.")
+    elif bat_choice == "moe":
+        print("You follow Moe for what seems like hours. Just when you are about to give up, you see a light slowly approaching in the distance. You run and find yourself out of the caves! The exit collapses behind you and all your friends round the corner just in time to see you. You survived your journey!")
+    else:
+        print("Invalid choice. Please choose HARRY, CURLY, OR MOE.")
+        torch_ending()
+
 def sword_plotline():
     print("You grab the sword and prepare for a fight. Gollum lunges at you, and you manage to fend him off, but you are wounded in the process. You'll need to find another way out of the Mines of Moria with your injuries.")
     print()
-    print("You walk around the cave, but with no source of light you find it difficult to be able to figure out where you are going. You feel like you are walking in circles. You stumble across a rock and fall. When you look up, you see two stones in front of you. One red and one turquoise.")
-    stone_choice = input("Do you choose the red or turquoise?").lower()
+    print("You walk around the cave, but with no source of light you find it difficult to be able to figure out where you are going. You feel like you are walking in circles. You stumble across a rock and fall. When you look up, you see two stones in front of you. One RED and one TURQUOISE.")
+    stone_choice = input("Do you choose the RED or TURQUOISE?").lower()
 
     if stone_choice in "red stone":
         print("You have picked up a stone of pathfinding! This stone will help you find the nearest exit but it may not be the right one you are looking for. You can follow the path that is laid in front of you now and also have a source of light that eminates from the red stone.")
@@ -44,6 +72,20 @@ def sword_plotline():
     else:
         print("Invalid choice. Please choose between RED or TURQUOISE.")
         sword_plotline()
+        
+def torch_ending():
+    print("After finding your way past the pond, you come across 3 talking bats named HARRY, CURLY, and MOE. They all tell you that only one knows the way out but you will have to choose which bat you want to follow. ")
+    bat_choice = input("Do you choose to follow HARRY, CURLY, OR MOE?").lower()
+
+    if bat_choice == "harry":
+        print("You have chosen incorrectly. Harry leads you to a hole trap and you fall down a hole too big to climb out of. Your journey has ended.")
+    elif bat_choice == "curly":
+        print("You have chosen incorrectly. Curly has no idea where he is going and leads you in circles until you have no idea where you are at in the cave. Your journey has ended.")
+    elif bat_choice == "moe":
+        print("You follow Moe for what seems like hours. Just when you are about to give up, you see a light slowly approaching in the distance. You run and find yourself out of the caves! The exit collapses behind you and all your friends round the corner just in time to see you. You survived your journey!")
+    else:
+        print("Invalid choice. Please choose HARRY, CURLY, OR MOE.")
+        torch_ending()
 
 def exit_story():
     print("You have found the exit! But is it the one you hope for? There are 3 exits laid in front of you. One with a picture of a GOOSE, one with a picture of a BOAR, and one with a picture of a DRAGON! Which one do you choose?")
