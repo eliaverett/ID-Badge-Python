@@ -1,44 +1,59 @@
-#I made the error message like a fun AI voice that tells you to do better!
 import turtle
 
-print('Welcome to the Word game!\n')
+print("Welcome to the word guessing game!\n")
 
 def choose_word():
-    word = "turtle"
-    no_letters = ['a', 'b', 'c', 'd', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q', 's', 'v', 'w', 'x', 'y', 'z']
-    letters = ['t', 'u', 'r', 'l', 'e']
-    return word, no_letters, letters
+    secret = 'turtle'
+    return secret
 
-def display_word(word, guessed_letters):
-    display = ''
-    for letter in word:
-        if letter in guessed_letters:
-            display += letter + ' '
-        else:
-            display += '_ '
-    return display.strip()
+def generate_initial_hint(secret):
+    return ''.join(['_' for _ in secret])
 
-def guess_word(word, no_letters, letters):
-    guessed_letters = []
+def display_hint(hint):
+    print(f"Hint: {hint}")
+
+def guess_word(secret):
     guess_count = 0
-    
-    while True:
-        guessed_letter = input("What is your next letter? ").lower()
-        
-        if guessed_letter in no_letters:
-            print("You thought it was that easy?! Try again!")
+    max_attempts = 3
+
+    initial_hint = "This animal lives on the land or sea."
+    display_hint(initial_hint)
+
+    hint = generate_initial_hint(secret)
+    display_hint(hint)
+
+    while guess_count < max_attempts:
+        user_guess = input("What is your guess?").lower()
+
+        if len(user_guess) != len(secret):
+            print("Invalid guess length. Try again.")
             continue
-        
-        guessed_letters.append(guessed_letter)
+
         guess_count += 1
 
-        current_display = display_word(word, guessed_letters)
+        new_hint = ""
+        for i in range(len(secret)):
+            secret_char = secret[i]
+            guess_char = user_guess[i]
 
-        print(f"Current status: {current_display}")
+            if guess_char == secret_char:
+                new_hint += guess_char.upper()
+            elif guess_char in secret:
+                if guess_char != secret[i]:
+                    new_hint += guess_char.lower()
+                else:
+                    new_hint += guess_char.upper()
+            else:
+                new_hint += hint[i]
 
-        if set(letters).issubset(set(guessed_letters)):
-            print(f"Congratulations! You guessed the word in {guess_count} guesses!")
-            break
+        hint = new_hint
+        display_hint(hint)
 
-word, no_letters, letters = choose_word()
-guess_word(word, no_letters, letters)
+        if user_guess == secret:
+            print(f"Your guess was correct! You guessed in {guess_count} guesses!")
+            return
+
+    print(f"Sorry, you've reached the maximum number of attempts. The correct word was not revealed.")
+
+secret_word = choose_word()
+guess_word(secret_word)

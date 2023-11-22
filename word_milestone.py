@@ -6,6 +6,12 @@ def choose_word():
     secret = 'turtle'
     return secret
 
+def generate_initial_hint(secret):
+    return '_' * len(secret)
+
+def display_hint(hint):
+    print(f'Current Hint: {hint}')
+
 def guess_word(secret):
     guess_count = 0
 
