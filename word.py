@@ -1,3 +1,4 @@
+#I added for creativity a max limit of guess attempts for the user!
 import turtle
 
 print("Welcome to the word guessing game!\n")
